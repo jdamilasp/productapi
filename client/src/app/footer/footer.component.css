@@ -1,0 +1,10 @@
+/* Footer */
+.footer {
+    background-color: rgba(113, 113, 113, 0.31);
+    height: 50px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+  }
+  
