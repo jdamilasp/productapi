@@ -48,7 +48,8 @@ export class LoginComponent implements OnInit {
       (data) => {
         console.log(" Response ", data);
 
-        this.router.navigate(["/dashboard"])
+        window.location.href='/dashboard'
+        // this.router.navigate(["/dashboard"])
       },(err: any) => {
         console.log(" Error ", err);
         

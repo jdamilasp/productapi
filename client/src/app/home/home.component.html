@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10 middle-container">
+
+        <h3> Best Selling Product for Comming Season</h3>
+        <p> You can list down best selling product for comming season. for given industry.</p>
+
+        <div class="main-container">
+            <div class="title">
+                Top 10 Product for given Industry 
+            </div>
+            <div class="method-container">
+                <div class="left">            
+                    <div class="btn">
+                        GET
+                    </div>
+                </div>
+                <div class="right">
+                  <p class="url">https://productapi.com/api/v3/product/foods?token=1KDSJ90DJKSDKJDSFDSJKDSF</p>
+                </div>
+            </div>
+          <div class="scroll-container">
+              <ngx-json-viewer [json]="apiObj"></ngx-json-viewer>      
+          </div>  
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+</div>

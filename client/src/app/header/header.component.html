@@ -1,16 +1,31 @@
+
+<div class="logo">
+    <a class="logo-link" [routerLink]="['/']">Product API</a>
+</div>
 <ul class="nav justify-content-end">
+
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/docs']">Get Started</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/docs']">Documentation</a>
+  </li>
+  <li *ngIf="!isLogin" class="nav-item">
+    <a class="nav-link" [routerLink]="['/pricing']">Pricing</a>
+  </li>
+
   <li *ngIf="!isLogin" class="nav-item">
     <a class="nav-link" [routerLink]="['/login']">Login</a>
   </li>
   <li *ngIf="!isLogin" class="nav-item">
-    <a class="nav-link" [routerLink]="['/signup']">Signup</a>
+    <a class="nav-link btn btn-primary" [routerLink]="['/signup']">Sign Up</a>
   </li>
   <li *ngIf="isLogin" class="nav-item">
       <a class="nav-link active" [routerLink]="['/dashboard']">Dashboard</a>
     </li>
   <li *ngIf="isLogin" class="nav-item">
     <a class="nav-link" >
-      <button class="btn btn-primary" (click)=logout()>logout</button>
+      <button class="btn btn-default" (click)=logout()>logout</button>
     </a>
   </li>
 </ul>

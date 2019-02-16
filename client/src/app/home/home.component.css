@@ -1,0 +1,67 @@
+.middle-container {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.main-container {
+    width: 500px;
+    margin: auto;
+    box-shadow: 0px 0px 10px #cccfff;
+}
+
+.main-container .title {
+    height: 50px;
+    text-align: center;
+    color:rgba(0,0,0,.6);
+    padding: 10px;
+    font-size: 120%;
+}
+
+.main-container .method-container .left {
+    background-color: #e8e9ea;
+    width: 100px;
+    height: 100px;
+    float: left;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 0.5px solid rgba(0,0,0,.1);
+    border-right: 0.5px solid rgba(0,0,0,.1);
+}
+
+.main-container .method-container .left .btn {
+    background-color:#18D689;
+    margin: auto;
+    margin-top: 30px;
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+.main-container .method-container .right {
+    float: right;
+    width: 399.5px;
+    height: 100px;
+    background-color: #e8e9ea;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.main-container .method-container .right .url{
+    margin-top: 10px;
+    text-align: left;
+    margin: 5px;
+    padding: 10px;
+    line-height: 200%;
+    color: rgba(0,0,0,.6)
+}
+
+.main-container .scroll-container {
+    height: 300px;
+    width: 500px;
+    margin: auto;
+    /* overflow-y: scroll; */
+    overflow-x: hidden;
+    text-align: justify;
+    padding: 10px;
+}

@@ -2,3 +2,15 @@
     background-color: #d0caca;
     padding: 10px;
 }
+
+.logo{
+    position: absolute;
+    top : 12px;
+    left: 12px;
+}
+
+.logo .logo-link {
+    text-decoration: none;
+    color: black;
+    font-size: 150%;
+}

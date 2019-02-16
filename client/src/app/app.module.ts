@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
+ 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './_guards/auth.guard';
 
@@ -19,6 +22,9 @@ import { HttpService } from './_services/http.service';
 import { LoginService } from './_services/login.service';
 import { SignupService } from './_services/signup.service';
 import { DashboardService } from './_services/dashboard.service';
+import { HomeComponent } from './home/home.component';
+import { PricingComponent } from './pricing/pricing.component';
+import { DocsComponent } from './docs/docs.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +34,16 @@ import { DashboardService } from './_services/dashboard.service';
     LoginComponent,
     SignupComponent,
     DashboardComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent,
+    PricingComponent,
+    DocsComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxJsonViewerModule,
     AppRoutingModule
   ],
   providers: [
