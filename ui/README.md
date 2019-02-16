@@ -7,6 +7,8 @@
 6. Dashboard Page
 7. 404 Page :heavy_check_mark:
 
+8. API Doc Page :heavy_check_mark:
+---
 ### Home Page 
 ![home-page](https://github.com/jdamilasp/productapi/blob/master/ui/01.home_page.png)
 
@@ -27,3 +29,10 @@
 
 ### Home Page 
 ![404-page](https://github.com/jdamilasp/productapi/blob/master/ui/07.404.page.png)
+
+---
+
+### Home Page 
+![api-docs-page](https://github.com/jdamilasp/productapi/blob/master/ui/08.apidocs.png)
+
+---
