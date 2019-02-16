@@ -15,6 +15,13 @@ DB -> Mongodb and Redis
 3. Install angular cli in global 
 4. install pm2 in global
 
+#### Home Page 
+![home-page](https://github.com/jdamilasp/productapi/blob/master/ui/01.home_page.png)
+
+
+#### Home Page 
+![dahsboard-page](https://github.com/jdamilasp/productapi/blob/master/ui/06.dashboard_page.png)
+
 ## How set up development enviroment 
 
 ### Link to UI Page 
