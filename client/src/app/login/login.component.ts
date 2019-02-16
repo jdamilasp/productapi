@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(loginObj).subscribe(      
       (data) => {
       if(data && data.status === 'valid'){
-        window.location.href='/dashboard'
+        window.location.href='/'
       }else{
         this.loading = false;
         this.isError = true;

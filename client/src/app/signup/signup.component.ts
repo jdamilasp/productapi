@@ -59,7 +59,7 @@ export class SignupComponent implements OnInit {
         if(data && data.status === "success"){
           this.isSuccss = true;          
           setTimeout(() => {        
-            window.location.href='/dashboard'            
+            window.location.href='/'            
           }, 1000)
         }else{          
           this.isError = true;
