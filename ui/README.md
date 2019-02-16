@@ -11,7 +11,7 @@
 ![home-page](https://github.com/jdamilasp/productapi/blob/master/ui/01.home_page.png)
 
 ### Dcoument Page 
-
+![dcoument-page](https://github.com/jdamilasp/productapi/blob/master/ui/02.document_page.png)
 
 ### Pricing Page 
 ![pricing-page](https://github.com/jdamilasp/productapi/blob/master/ui/03.pricing_page.png)
@@ -23,7 +23,7 @@
 ![sign_up-page](https://github.com/jdamilasp/productapi/blob/master/ui/05.signup_page.png)
 
 ### Dashboard Page 
-
+![dashboard-page](https://github.com/jdamilasp/productapi/blob/master/ui/06.dashboard_page.png)
 
 ### Home Page 
 ![404-page](https://github.com/jdamilasp/productapi/blob/master/ui/07.404.page.png)
