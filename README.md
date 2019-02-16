@@ -33,6 +33,11 @@ Link : https://github.com/jdamilasp/productapi/tree/master/ui
 3. `npm start` 
 * Server Start : http://localhost:3000 
 
+### API Doc Generation 
+1. go to server directory 
+2. `npm run doc` // create api doc 
+* URL : http://localhost:3000/apidoc
+
 ## How set up production deployment 
 1. go to client directory 
 2. `npm install`
