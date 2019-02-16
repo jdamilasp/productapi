@@ -17,6 +17,10 @@ DB -> Mongodb and Redis
 
 ## How set up development enviroment 
 
+### Link to UI Page 
+
+Link : https://github.com/jdamilasp/productapi/tree/master/ui
+
 ### Set up Client 
 1. go to client directory 
 2. `npm install` // install all angular project require node modules 
