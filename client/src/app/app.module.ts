@@ -24,7 +24,6 @@ import { SignupService } from './_services/signup.service';
 import { DashboardService } from './_services/dashboard.service';
 import { HomeComponent } from './home/home.component';
 import { PricingComponent } from './pricing/pricing.component';
-import { DocsComponent } from './docs/docs.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { DocsComponent } from './docs/docs.component';
     DashboardComponent,
     PageNotFoundComponent,
     HomeComponent,
-    PricingComponent,
-    DocsComponent
+    PricingComponent
   ],
   imports: [
     BrowserModule,

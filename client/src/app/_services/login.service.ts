@@ -12,7 +12,7 @@ export class LoginService {
   ) { }
 
     login(obj){
-      return this.http.post( "/user/login", obj)
+      return this.http.post( "/api/v1/users/password/validate", obj)
         .pipe(map((response) => {
           // If token in response store in localstorage
           if(response && response.token){

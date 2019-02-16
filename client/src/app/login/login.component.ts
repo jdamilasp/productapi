@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   loading: Boolean = false;
   submitted: Boolean = false;
 
+  isError: Boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -33,28 +35,34 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.isError = false;
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
         return;
     }
 
-    this.loading = true;
+    this.loading = true;    
     let loginObj = { 
       email : this.f.email.value, 
       password: this.f.password.value
     };
     this.loginService.login(loginObj).subscribe(      
       (data) => {
-        console.log(" Response ", data);
-
+      if(data && data.status === 'valid'){
         window.location.href='/dashboard'
-        // this.router.navigate(["/dashboard"])
-      },(err: any) => {
-        console.log(" Error ", err);
-        
+      }else{
         this.loading = false;
+        this.isError = true;
+      } 
+      },(err: any) => {  
+        this.loading = false;
+        this.isError = true;
       })
   } 
+
+  closeError() {    
+    this.isError = false;
+  }
 
 }

@@ -1,17 +1,41 @@
-<div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="error-template">
-                    <h1>
-                        Oops!</h1>
-                    <h3> Dashboard Page Under Development</h3>
-
-                    <div class="error-actions">
-                        <a [routerLink]="['/']" class="btn btn-primary btn-lg">
-                          <span class="glyphicon glyphicon-home"></span>
-                            Take Me Home </a>                
-                    </div>
-                </div>
-            </div>
+<div class="profile-info">
+    <div class="row">
+        <div class="col-md-3">Name<br/>{{firstName}}</div>
+        <div class="col-md-3">Email<br/>{{email}}</div>
+        <div class="col-md-3">Api Key<br/> {{apikey}}</div>
+        <div class="col-md-3">
+            <button class="btn btn-default" (click)=apiKeyRegenaration()>Api-Key Regenerates</button>
         </div>
-      </div>
+    </div>
+</div>
+
+<div class="row new-product">
+    <p> Json Input : </p>
+        <textarea > {{newProduct | json }} </textarea>
+    <button class="btn btn-primary"  (click)="importJson()" >Import Json </button>
+</div>
+
+<div class="row prodcut-container">
+    <div class="col-md-3 product-list">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h3> Product List </h3>
+            </li>
+            <li class="list-group-item" *ngFor="let item of productList">
+                <button class="btn btn-outline-primary btn-lg btn-block"
+                (click)=selectProdcut(item)
+                >{{item?.product}}</button>
+            </li>        
+        </ul>
+    </div>
+    <div class="col-md-8 selected-product">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h3>Selected Product : {{selectedProduct?.product}}</h3>
+            </li>
+            <li class="list-group-item">
+                <ngx-json-viewer [json]="selectedProduct"></ngx-json-viewer>      
+            </li>        
+        </ul>
+    </div>
+</div>

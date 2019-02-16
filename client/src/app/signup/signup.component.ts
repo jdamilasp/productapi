@@ -14,6 +14,10 @@ export class SignupComponent implements OnInit {
   loading: boolean = false;
   submitted: boolean = false;
 
+  isSuccss: boolean = false;
+  isError: boolean = false;
+  isEmailAlreadyExist: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -33,6 +37,9 @@ export class SignupComponent implements OnInit {
 
   onSubmit(){
     this.submitted = true;
+    this.isError = false;
+    this.isEmailAlreadyExist = false;
+    this.isSuccss = false;
 
     if(this.singupForm.invalid){
       return;
@@ -48,15 +55,27 @@ export class SignupComponent implements OnInit {
     }
     this.signupService.signup(loginObj).subscribe(      
       (data) => {
-        console.log(" Response ", data);
-
-        this.router.navigate(["/dashboard"])
-      },(err: any) => {
-        console.log(" Error ", err);
-
         this.loading = false;
+        if(data && data.status === "success"){
+          this.isSuccss = true;          
+          setTimeout(() => {        
+            window.location.href='/dashboard'            
+          }, 1000)
+        }else{          
+          this.isError = true;
+        }        
+      },(err: any) => {
+        this.loading = false;
+        this.isError = true;
+        if(err.error && err.error.error === "UserAlreadyExist"){
+          this.isEmailAlreadyExist = true;
+        }
       })
-
   }
+
+  closeError() {    
+    this.isError = false;
+  }
+
 
 }
