@@ -8,6 +8,16 @@ var cros = require('./config/cros');
 
 var usersRouter = require('./routes/users');
 
+// mongodb connect
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/product', { useNewUrlParser: true } );
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log(" Successfully Create Mongodb Connection :) ");
+});
+
 var app = express();
 
 app.use(cros);
@@ -27,7 +37,7 @@ app.use("*", function(req, res, next){
   next();
 })
 
-app.use('/user', usersRouter);
+app.use('/api/v1/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

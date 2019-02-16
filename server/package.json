@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "prod": "pm2 start ./bin/www --name=productapiserver"
+    "prod": "pm2 start ./bin/www --name=productapiserver",
+    "doc": "apidoc -i ./routes -o ./public/apidoc"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -12,6 +13,10 @@
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
-    "morgan": "~1.9.0"
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.13",
+    "mongoose-unique-validator": "^2.0.2",
+    "morgan": "~1.9.0",
+    "password-hash": "^1.2.2"
   }
 }

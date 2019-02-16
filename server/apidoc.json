@@ -1,0 +1,11 @@
+{
+  "name": "PRODUCT API DOC",
+  "version": "1.0.0",
+  "description": "Product API Documentation",
+  "apidoc": {
+    "title": "Product API DOC",
+    "url" : "http://productsapi.com/api/v3"
+    
+  },
+  "sampleUrl" : "http://localhost:3000"
+}
