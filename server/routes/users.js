@@ -60,7 +60,7 @@ router.post('/password/validate', function(req, res, next) {
         if(result){                  
           // NOTE : rememberme -> true. jwt token expire time should be 30 days. false -> 2 days 
           if(passwordHash.verify(req.body.password,result.password)){
-            return res.status(200).json({ status : 'valid', email : req.body.email, token : TOKEN.createToken(result)});
+            return res.status(200).json({ status : 'valid', email : req.body.email, token : result.token});
           }else{
             return res.status(200).json({ error : "PasswordValidationError", message: "`password` is invalid" });
           }
@@ -144,7 +144,7 @@ router.post('/', function(req, res, next) {
  *       "user": {
  *          "email" : "abc@gmail.com",
  *          "firstName" : "PQR",
- *          "apiKey": "XXXX--API-Key-XXXX"
+ *          "apikey": "XXXX--API-Key-XXXX"
  *       }
  *     }
  *
@@ -158,7 +158,10 @@ router.post('/', function(req, res, next) {
  *     }
  */
 router.post('/info', AUTH, function(req, res, next) {
-    Users.findOne({ token : req.token },{firstName:1,email:1,apiKey:1} ,function(err, result){
+
+  console.log(req.token);
+
+    Users.findOne({ token : req.token },{firstName:1,email:1,apikey:1} ,function(err, result){
       if(err){
         return res.status(500).json({ err : err })            
       }else{

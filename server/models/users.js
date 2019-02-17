@@ -18,7 +18,7 @@ var userSchema = new mongoose.Schema({
         required : true, dropDups: true },    
     password: { type : String, required : true, minlength : 6 },
     signUpStatus : { type: String, required: true, enum: ["NEW","VERIFY"]},
-    apiKey: { type: String},
+    apikey: { type: String},
     token: { type: String }
 })
 userSchema.plugin(uniqueValidator, { message: "Error, expected `email` to be unique." });
@@ -26,8 +26,8 @@ userSchema.pre('save', function(next) {
     if(!passwordHash.isHashed(this.password)){
         this.password = passwordHash.generate(this.password);        
     }
-    if(!this.apiKey){
-        this.apiKey = uuidv4()
+    if(!this.apikey){
+        this.apikey = uuidv4()
     }
     if(!this.token){
         this.token = token.createToken(this);

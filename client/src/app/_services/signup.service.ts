@@ -17,7 +17,7 @@ export class SignupService {
       .pipe(map((response) => {
         // If token in response store in localstorage
         if(response && response.token){
-          localStorage.setItem('token', JSON.stringify(response.token)); 
+          localStorage.setItem('token', response.token); 
         }
         return response;
       }));

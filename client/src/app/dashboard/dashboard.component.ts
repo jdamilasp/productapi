@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from '../_services/dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,7 @@ export class DashboardComponent implements OnInit {
   newProduct: any = {};
 
   constructor(
-   
+    private dashboardService: DashboardService
   ) { }
 
   ngOnInit() {
@@ -28,9 +29,12 @@ export class DashboardComponent implements OnInit {
   getUserInfo(){
     
     // API Call to Get User Info 
-    this.firstName = "ABC";
-    this.email = "abc@gmail.com";
-    this.apikey = "HDJD7GDDSJ8JKKJDD";
+    this.dashboardService.userInfo()
+    .subscribe((data) => {
+        this.firstName = data.user.firstName;
+        this.email = data.user.email;
+        this.apikey = data.user.apikey;
+    })
 
     // This only for Testing 
     setTimeout(() => {
@@ -51,28 +55,27 @@ export class DashboardComponent implements OnInit {
 
     // JSON Validation 
 
-    // API Call Update JSON in DB 
+    // TODO : API Call Update JSON in DB 
     this.productList.push(this.newProduct);
 
     // This in only for testing 
-    let tmp = this.newProduct;
     this.newProduct = {};
     setTimeout(() => {
-      this.newProduct = tmp;
+      this.newProduct = { product: "Product " + ( this.productList.length + 1 ), desc: "PQR DESC"};
     },2000)
 
   }
 
   selectProdcut(item) {
     
-    // Getting Product ID, Make API Call Get Product Info 
+    // TODO : Getting Product ID, Make API Call Get Product Info 
     this.selectedProduct = item;
   }
 
   apiKeyRegenaration(){
 
-    // API Call for New API Key 
-    this.apikey = "JDJKDF9DKKL32JDF8DF"
+    // TODO : API Call for New API Key 
+    this.apikey = "e77dc5a8-53ce-424f-8292-538f98bc22c6"
 
   }
 
