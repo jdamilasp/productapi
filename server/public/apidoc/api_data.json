@@ -89,6 +89,68 @@
   },
   {
     "type": "post",
+    "url": "/api/v1/users/info",
+    "title": "User Info",
+    "version": "1.0.0",
+    "name": "UserInfos",
+    "group": "Users",
+    "description": "<p>Check, given <code>token</code> in DB.</p>",
+    "permission": [
+      {
+        "name": "true"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User <code>token</code> is requried</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:   ",
+          "content": "{\n  \"status\": \"success\",\n  \"user\": {\n     \"email\" : \"abc@gmail.com\",\n     \"firstName\" : \"PQR\",\n     \"apiKey\": \"XXXX--API-Key-XXXX\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "NotFoundError",
+            "description": "<p><code>token</code> not found value : <code>XXX--JWT--XXX</code></p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "Error 404 Not Found\n{\n  \"error\": \"NotFoundError\",\n  \"message\": \"`token` not found value : `XXX--JWT--XXX` \"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/users.js",
+    "groupTitle": "Users",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/api/v1/users/info"
+      }
+    ]
+  },
+  {
+    "type": "post",
     "url": "/api/v1/users/password/validate",
     "title": "User Password Validate",
     "version": "1.0.0",

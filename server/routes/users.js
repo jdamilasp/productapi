@@ -3,6 +3,7 @@ var router = express.Router();
 var passwordHash = require('password-hash')
 var Users = require('./../models/users');
 var TOKEN = require('./../auth/token');
+var AUTH = require('./../auth/index');
 var CONSTANTS = require('./../config/constants');
 
 /**
@@ -56,12 +57,9 @@ router.post('/password/validate', function(req, res, next) {
         return res.status(500).json({ err : err })
             
       }else{
-        if(result){          
-          // TODO : 01 : Here need convert password to hash and match it
+        if(result){                  
           // NOTE : rememberme -> true. jwt token expire time should be 30 days. false -> 2 days 
-          // var hashPassword = passwordHash.generate(req.body.password);
-          // if(result.password === hashPassword)
-          if(result.password === req.body.password){
+          if(passwordHash.verify(req.body.password,result.password)){
             return res.status(200).json({ status : 'valid', email : req.body.email, token : TOKEN.createToken(result)});
           }else{
             return res.status(200).json({ error : "PasswordValidationError", message: "`password` is invalid" });
@@ -125,10 +123,53 @@ router.post('/', function(req, res, next) {
         return res.status(400).json({ error: err.name, message: err.message });
       }
     }
-    return res.status(200).json({ status: "success", token: TOKEN.getToken(), email: req.body.email });
+    return res.status(200).json({ status: "success", token: result.token, email: req.body.email });
   })  
 });
 
+
+/**
+ * @api {post} /api/v1/users/info User Info
+ * @apiVersion 1.0.0
+ * @apiName UserInfos
+ * @apiGroup Users 
+ * @apiDescription Check, given `token` in DB.
+ * @apiPermission true
+ *  
+ * @apiParam {String} token User `token` is requried
+ * 
+ * @apiSuccessExample {json} Success-Response:   
+ *     {
+ *       "status": "success",
+ *       "user": {
+ *          "email" : "abc@gmail.com",
+ *          "firstName" : "PQR",
+ *          "apiKey": "XXXX--API-Key-XXXX"
+ *       }
+ *     }
+ *
+ * @apiError NotFoundError `token` not found value : `XXX--JWT--XXX` 
+ * 
+ * @apiErrorExample Error-Response:
+ *     Error 404 Not Found
+ *     {
+ *       "error": "NotFoundError",
+ *       "message": "`token` not found value : `XXX--JWT--XXX` "
+ *     }
+ */
+router.post('/info', AUTH, function(req, res, next) {
+    Users.findOne({ token : req.token },{firstName:1,email:1,apiKey:1} ,function(err, result){
+      if(err){
+        return res.status(500).json({ err : err })            
+      }else{
+        if(result){                      
+          return res.status(200).json({ status : 'success', user: result });      
+        }else{
+          return res.status(404).json({ error : "NotFoundError", message: "token not found. value: `" + req.token + "`"  })
+        }
+      }
+    });
+});
 
 
 module.exports = router;
